@@ -26,6 +26,7 @@ def write_datasheet(wb, df):
 
 
 @click.command()
+@click.version_option("1.0")
 @click.argument("csv", type=click.Path(exists=True))
 def to_xlsx(csv):
     """Convert typeperf's CSV to xlsx charts."""
