@@ -10,20 +10,6 @@ import dateutil.parser
 import re
 import os.path
 
-def to_datetime(s):
-    dt = dateutil.parser.parse(s)
-    return dt.strftime("%Y%m%d-%H%M%S")
-
-
-def write_datasheet(wb, df):
-    ws = wb.add_worksheet("data")
-    ws.write_column("A2", [to_datetime(x) for x in df.index])
-    ws.write_row("B1", df.columns)
-    col = 1
-    for col, val in df.iteritems():
-        ws.write_column(1, col, val.values)
-        col += 1
-
 
 @click.command()
 @click.version_option("1.0")
